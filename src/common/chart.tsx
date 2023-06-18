@@ -1,4 +1,4 @@
-import { Bar } from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
 
 export interface IChartData {
   labels: string[];
@@ -10,6 +10,8 @@ export interface IDataSets {
   label: string;
   data: number[];
   backgroundColor: string;
+  borderColor: string;
+  borderWidth: number;
 }
 interface IProps {
   data: IChartData;
@@ -17,9 +19,9 @@ interface IProps {
   width?: number;
 }
 
-const BarChart: React.FC<IProps> = ({ data, height, width }) => {
+const Chart: React.FC<IProps> = ({ data, height, width }) => {
   return (
-    <Bar
+    <Line
       data={data}
       width={width}
       style={{ position: "fixed", bottom: "20px" }}
@@ -27,6 +29,24 @@ const BarChart: React.FC<IProps> = ({ data, height, width }) => {
       options={{
         maintainAspectRatio: false,
         responsive: true,
+        scales: {
+          y: {
+            ticks: {
+              // display: false,
+            },
+            grid: {
+              display: false,
+            },
+          },
+          x: {
+            ticks: {
+              color: "#000000",
+            },
+            grid: {
+              display: false,
+            },
+          },
+        },
         plugins: {
           legend: {
             position: "top" as const,
@@ -43,4 +63,4 @@ const BarChart: React.FC<IProps> = ({ data, height, width }) => {
   );
 };
 
-export default BarChart;
+export default Chart;

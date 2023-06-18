@@ -35,11 +35,11 @@ export const StepsGraph: React.FC<IStepsChart> = (props) => {
                 label: 'Steps',
                 data: activityData.map((ele: any) => ele.steps),
                 backgroundColor: 'rgba(255, 99, 132, 0.5)',
-                borderRadius: 20,
-                borderSkipped: 20,
             },
         ]
     };
+    console.log("createChartData", createChartData);
+    console.log("activityData.map((ele: any) => ele.calories_burned),", activityData.map((ele: any) => ele.calories_burned),);
     return (
         <ChartComponent data={createChartData as unknown as IChartData} width={300} />
     );

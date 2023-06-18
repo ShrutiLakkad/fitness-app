@@ -1,3 +1,8 @@
+@import "~bootstrap/scss/bootstrap";
+
+$primary-color: rgba(96, 153, 219, 1);
+$secondary-color: rgba(233, 171, 198, 1);
+
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
@@ -22,6 +27,43 @@
   background-color: rgba(0, 0, 0, 0.664);
 }
 
+@media only screen and (min-width: 1200px) {
+  body {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+  }
+  .background {
+    background-color: aqua;
+    background: rgb(233, 171, 198);
+    background: linear-gradient(
+      135deg,
+      rgba(233, 171, 198, 1) 0%,
+      rgba(96, 153, 219, 1) 100%
+    );
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    padding: 20px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .card-container {
+    .custom-card {
+      height: calc(100vh - 140px);
+    }
+  }
+  .list-wrapper {
+    max-height: calc(100% - 87px);
+  }
+}
+@media only screen and (max-width: 767px) {
+  .list-wrapper {
+    padding-right: 0 !important;
+  }
+}
+
 .background {
   background-color: aqua;
   background: rgb(233, 171, 198);
@@ -30,26 +72,18 @@
     rgba(233, 171, 198, 1) 0%,
     rgba(96, 153, 219, 1) 100%
   );
-  height: calc(100vh - 40px);
-  width: calc(100vw - 40px);
+  width: 100vw;
   padding: 20px;
-  .container {
-    // display: flex;
-    gap: 20px;
-    // align-items: center;
-    justify-content: space-between;
-  }
 }
 
 .custom-card {
   padding: 20px;
   border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.425);
-  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.246);
+  backdrop-filter: blur(5px);
   box-shadow: 0 0 10px rgba(73, 73, 73, 0.288);
   display: flex;
   // width: max-content;
-  cursor: pointer;
   transition: 0.2s all ease-in-out;
 
   // &:hover {
@@ -60,23 +94,30 @@
 }
 
 .card-heading {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
+  .filter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
   h2 {
     margin: 0;
   }
-  margin: 0 0 20px 0;
+  margin: 0 0 10px 0;
 }
 
 .flipped {
   transform: rotateY(180deg);
-  transform-style: preserve-3d;
+  // transform-style: preserve-3d;
 }
 
 .card-container {
+  width: 100%;
   perspective: 1000px;
+  margin-bottom: 10px;
+  .custom-card {
+    width: 100%;
+  }
 }
 
 .card {
@@ -95,7 +136,7 @@
 .card-back {
   // position: absolute;
   width: 100%;
-  height: 100%;
+  // height: 100%;
 }
 
 // .card-front {
@@ -110,15 +151,27 @@
 
 .card-back {
   transform: rotateY(180deg);
-  .activity-name {
-    text-align: center;
-    font-size: 30px;
-    font-weight: 500;
-    margin: 0;
+  position: relative;
+  .close-button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+    transition: 0.3s all ease-in-out;
+    &:hover {
+      transform: rotate(90deg);
+    }
   }
-  .cross-icon {
-    display: flex;
-    justify-content: end;
+  .activity-name {
+    margin-bottom: 20px;
+    p {
+      font-size: 40px;
+      font-weight: 500;
+      margin: 0;
+    }
+    span {
+      color: #424242;
+    }
   }
 }
 
@@ -126,7 +179,6 @@
   margin-top: 20px;
 }
 .list-wrapper {
-  max-height: calc(100vh - 140px);
   overflow: auto;
   border-radius: 10px;
 }
@@ -137,17 +189,21 @@
     }
   }
   .list-entity {
-    width: calc(100% - 40px) !important;
+    width: 100% !important;
+    height: auto;
     margin: 0;
     background-color: white;
     margin-bottom: 10px;
     display: flex;
     gap: 15px;
+    cursor: pointer;
   }
 }
 .card-icons {
   display: flex;
+  justify-content: center;
   align-items: center;
+  width: 50px;
 }
 .card-activities-details {
   display: flex;
@@ -233,53 +289,96 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  .burn-circular {
+}
+
+.weight-card {
+  height: calc(100vh - 550px);
+  min-height: 30px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .weight {
+    min-width: 50%;
     display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 5px;
+    flex-direction: column;
+    h3 {
+      color: rgb(11, 97, 81);
+      font-size: 45px;
+    }
+    h1 {
+      color: rgb(47, 157, 137);
+      font-size: 40px;
+    }
+    h5 {
+      color: rgb(107, 107, 107);
+      text-align: center;
+    }
   }
 }
-.weight-card {
+
+.heart-rate-card {
   margin-bottom: 10px;
+  height: calc(100vh - 550px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .heart-rate {
+    min-width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    h3 {
+      color: rgb(120, 1, 27);
+      font-size: 45px;
+      text-align: center;
+    }
+    h1 {
+      color: rgb(255, 14, 66);
+      font-size: 40px;
+      text-align: center;
+    }
+    h5 {
+      color: rgb(107, 107, 107);
+      text-align: center;
+    }
+  }
 }
-.profile-image {
+.ap-header {
+  margin-bottom: 10px;
+  .app-heading {
+    height: auto;
+    h1 {
+      margin: 0;
+    }
+  }
+}
+.profile {
+  display: flex;
+  justify-content: flex-end;
+  overflow: hidden;
   img {
-    height: 66px;
+    height: 50px;
+    width: 50px;
     border-radius: 50%;
-    width: 65px;
     object-fit: cover;
     display: flex;
     justify-content: end;
   }
-  .user-details {
-    display: flex;
-    // justify-content: center;
-    gap: 10px;
-    flex-direction: column;
-    .user-name {
-      margin: 0;
-      font-size: 23px;
-      font-weight: 400;
-    }
-  }
 }
-.calories-chart-card {
-  height: 300px !important;
-  width: 470px !important;
-  .calories-chart {
+.chart-card {
+  height: 400px !important;
+  width: 100% !important;
+  margin-bottom: 10px;
+
+  h4 {
+    margin-bottom: 0;
+  }
+  .chart {
     width: 100%;
-    // height: 275px;
+    height: 100%;
   }
-}
-.elliptical-image {
-  height: 46px;
-  width: 44px;
-}
-.gain-image {
-  height: 19px;
-  width: 24px;
-}
-.strides-image {
-  height: 27px;
-  width: 25px;
 }
