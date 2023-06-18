@@ -1,4 +1,4 @@
-import './assets/styles/custom.scss'
+import './assets/styles/new-custom.scss'
 import FitnessApp from './features/fitnessApp/fitnessApp';
 
 function App() {

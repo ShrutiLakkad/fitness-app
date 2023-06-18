@@ -29,7 +29,7 @@ export interface IStepsChart {
 export const StepsGraph: React.FC<IStepsChart> = (props) => {
     const { activityData } = props;
     const createChartData = {
-        labels: activityData.map((ele: any) => ele.steps),
+        labels: activityData.map((ele: any) => moment(ele.date).format('D MMMM')),
         datasets: [
             {
                 label: 'Steps',

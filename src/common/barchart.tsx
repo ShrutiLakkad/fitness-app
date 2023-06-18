@@ -26,12 +26,12 @@ const BarChart: React.FC<IProps> = ({ data, height, width }) => {
             style={{ position: "fixed", bottom: "20px" }}
             height={height}
             options={{
-                maintainAspectRatio: true,
+                maintainAspectRatio: false,
                 responsive: true,
                 scales: {
                     y: {
                         ticks: {
-                            // display: false,
+                            color: "#000000",
                         },
                         grid: {
                             display: false,
@@ -40,7 +40,6 @@ const BarChart: React.FC<IProps> = ({ data, height, width }) => {
                     x: {
                         ticks: {
                             color: "#000000",
-                            display: false,
                         },
                         grid: {
                             display: false,
