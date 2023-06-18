@@ -229,14 +229,17 @@ const FitnessApp = () => {
 
                                     {/* ----------------- */}
                                     <Row>
-                                        <Col md="6" sm="12">
-                                            <p className="activity-distance">
-                                                <IconDistanceOutline /> {selectedActivity.distance} km
-                                            </p>
-                                        </Col>
+                                        {selectedActivity.distance && (
+                                            <Col md="6" sm="12">
+                                                <p className="activity-distance">
+                                                    Distance  <IconDistanceOutline />  {selectedActivity.distance} km
+                                                </p>
+                                            </Col>
+                                        )}
                                         {selectedActivity.elevation_gain && (
                                             <Col md="6" sm="12">
                                                 <p className="activity-gain">
+                                                    Elevation Gain
                                                     <img
                                                         src={GainImage}
                                                         alt="gain"
@@ -246,9 +249,9 @@ const FitnessApp = () => {
                                                 </p>
                                             </Col>
                                         )}
-
                                         <Col md="6" sm="12">
                                             <p>
+                                                Heart Rate
                                                 <IconHeartRate />
                                                 {selectedActivity.heart_rate.average}/
                                                 {selectedActivity.heart_rate.max}
@@ -256,7 +259,8 @@ const FitnessApp = () => {
                                         </Col>
                                         {selectedActivity.pace && (
                                             <Col md="6" sm="12">
-                                                <p>
+                                                <p className="activity-gain">
+                                                    Pace
                                                     <IconPace /> {selectedActivity.pace.best}/
                                                     {selectedActivity.pace.average}
                                                 </p>
@@ -264,17 +268,18 @@ const FitnessApp = () => {
                                         )}
                                         {selectedActivity.reps && (
                                             <Col md="6" sm="12">
-                                                <p>
+                                                <p className="activity-gain">
+                                                    Raps
                                                     <IconRepsWeightLifting />
                                                     {selectedActivity.reps.average_per_set}/
                                                     {selectedActivity.reps.total}
                                                 </p>
                                             </Col>
                                         )}
-
                                         {selectedActivity.strides && (
                                             <Col md="6" sm="12">
-                                                <p>
+                                                <p className="activity-gain">
+                                                    Strides
                                                     <img
                                                         src={EllipticalStridesImage}
                                                         alt="strides"
@@ -284,10 +289,10 @@ const FitnessApp = () => {
                                                 </p>
                                             </Col>
                                         )}
-
                                         {selectedActivity.pool_length && (
                                             <Col md="6" sm="12">
-                                                <p>
+                                                <p className="activity-gain">
+                                                    Pool Length
                                                     <IconPoolLength />
                                                     {selectedActivity.pool_length} m{" "}
                                                 </p>
@@ -295,21 +300,23 @@ const FitnessApp = () => {
                                         )}
                                         {selectedActivity.laps && (
                                             <Col md="6" sm="12">
-                                                <p>
-                                                    <IconLaps /> {selectedActivity.laps}
+                                                <p className="activity-gain">
+                                                    Laps   <IconLaps /> {selectedActivity.laps}
                                                 </p>
                                             </Col>
                                         )}
                                         {selectedActivity.strokes && (
                                             <Col md="6" sm="12">
-                                                <p>
+                                                <p className="activity-gain">
+                                                    Strokes
                                                     <IconRowingStrokes /> {selectedActivity.strokes}
                                                 </p>
                                             </Col>
                                         )}
                                         {selectedActivity.weight_lifted && (
                                             <Col md="6" sm="12">
-                                                <p>
+                                                <p className="activity-gain">
+                                                    Weight Lifted
                                                     <IconWeightLifting />
                                                     {selectedActivity.weight_lifted.average_per_rep}/
                                                     {selectedActivity.weight_lifted.total}
@@ -462,15 +469,31 @@ const FitnessApp = () => {
                     <Row>
                         <Col xl="6" lg="12" md="12" sm="12">
                             <Card className="heart-rate-card">
-                                <Lottie
-                                    options={heartBeatAnimationOptions}
-                                    height={200}
-                                    width={200}
-                                />
-                                <div className="heart-rate">
-                                    <h3>HEART RATE</h3>
-                                    <h1>90 bpm</h1>
-                                    <h5>Previous rate : 88 bpm</h5>
+                                <div className="heart-rate-details">
+                                    <Lottie
+                                        options={heartBeatAnimationOptions}
+                                        height={200}
+                                        width={200}
+                                    />
+                                    {Object.keys(selectedActivity).length > 0 ? (
+                                        <>
+                                            <div className="heart-rate">
+                                                <h3>HEART RATE</h3>
+                                                <h1>
+                                                    Average : {selectedActivity.heart_rate?.average}
+                                                </h1>
+                                                <h5>
+                                                    Max : {selectedActivity.heart_rate?.max}
+                                                </h5>
+                                            </div>
+                                        </>
+                                    ) : (
+                                        <div className="heart-rate">
+                                            <h3>HEART RATE</h3>
+                                            <h1>Average : 95 bpm</h1>
+                                            <h5>Max : 190 bpm</h5>
+                                        </div>
+                                    )}
                                 </div>
                             </Card>
                         </Col>

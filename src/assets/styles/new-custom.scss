@@ -74,6 +74,18 @@ $secondary-color: rgba(233, 171, 198, 1);
       }
     }
   }
+  .activity-name {
+    display: block !important;
+    span {
+      display: block !important;
+    }
+  }
+  .card-back {
+    .close-button {
+      right: -8px !important;
+      top: -7px !important;
+    }
+  }
 }
 
 .background {
@@ -326,25 +338,28 @@ $secondary-color: rgba(233, 171, 198, 1);
   display: flex;
   justify-content: center;
   align-items: center;
-  .heart-rate {
-    min-width: 50%;
+  .heart-rate-details {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    h3 {
-      color: rgb(120, 1, 27);
-      font-size: 45px;
-      text-align: center;
-    }
-    h1 {
-      color: rgb(255, 14, 66);
-      font-size: 40px;
-      text-align: center;
-    }
-    h5 {
-      color: rgb(107, 107, 107);
-      text-align: center;
+    .heart-rate {
+      min-width: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      h3 {
+        color: rgb(120, 1, 27);
+        font-size: 45px;
+        text-align: center;
+      }
+      h1 {
+        color: rgb(255, 14, 66);
+        font-size: 40px;
+        text-align: center;
+      }
+      h5 {
+        color: rgb(107, 107, 107);
+        text-align: center;
+      }
     }
   }
 }
@@ -419,12 +434,10 @@ $secondary-color: rgba(233, 171, 198, 1);
     .box {
       border-right: 1px solid #555555;
       height: 80px;
-
       h4,
       h5 {
         margin: 0;
       }
-
       &:last-child {
         border-right: none;
       }

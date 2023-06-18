@@ -10,16 +10,6 @@ import {
 import moment from 'moment-timezone';
 import ChartComponent, { IChartData } from '../../common/barchart'
 
-
-// export const formatDate = (date: any, format?: string) => {
-//     if (!date) {
-//         return '';
-//     }
-//     return moment(date)
-//         .local()
-//         .format(format || 'DD-MM-YYYY');
-// };
-
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 export interface IStepsChart {
