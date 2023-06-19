@@ -135,7 +135,6 @@ const FitnessApp = () => {
         {} as Activity
     );
     const [selectedDate, setSelectedDate] = useState(new Date());
-    console.log("selectedDate", selectedDate);
     const [filter, setFilter] = useState(dateOptions[0]);
     const [modalShow, setModalShow] = useState(false);
 
