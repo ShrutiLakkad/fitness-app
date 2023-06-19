@@ -173,15 +173,15 @@ const FitnessApp = () => {
                     <Row className="user-details-grid">
                         <Col md="4" lg="4" sm="12" className="box d-flex justify-content-center align-items-center flex-column gap-1">
                             <h4>Age</h4>
-                            <h5>{user.age}</h5>
+                            <h5>{user.age} year</h5>
                         </Col>
                         <Col md="4" lg="4" sm="12" className="box d-flex justify-content-center align-items-center flex-column gap-1">
                             <h4>Height</h4>
-                            <h5>{user.height}</h5>
+                            <h5>{user.height} cm</h5>
                         </Col>
                         <Col md="4" lg="4" sm="12" className="box d-flex justify-content-center align-items-center flex-column gap-1">
                             <h4>Weight</h4>
-                            <h5>{user.weight}</h5>
+                            <h5>{user.weight} kg</h5>
                         </Col>
                     </Row>
                 </Card>
