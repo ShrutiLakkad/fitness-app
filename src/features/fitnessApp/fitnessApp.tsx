@@ -135,6 +135,7 @@ const FitnessApp = () => {
         {} as Activity
     );
     const [selectedDate, setSelectedDate] = useState(new Date());
+    console.log("selectedDate", selectedDate);
     const [filter, setFilter] = useState(dateOptions[0]);
     const [modalShow, setModalShow] = useState(false);
 
@@ -404,7 +405,7 @@ const FitnessApp = () => {
                                                     <DatePicker
                                                         selected={selectedDate}
                                                         popperPlacement="bottom-end"
-                                                        dateFormat="dd/mm/yyyy"
+                                                        dateFormat="dd/MM/yyyy"
                                                         onChange={(date) => {
                                                             if (date) {
                                                                 setSelectedDate(date);

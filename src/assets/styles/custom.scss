@@ -61,6 +61,7 @@ $secondary-color: rgba(233, 171, 198, 1);
 @media only screen and (max-width: 767px) {
   .list-wrapper {
     padding-right: 0 !important;
+    min-height: 500px;
   }
 
   .user-profile {
@@ -93,6 +94,9 @@ $secondary-color: rgba(233, 171, 198, 1);
     h1 {
       font-size: 22px !important;
     }
+  }
+  .user-profile {
+    backdrop-filter: unset !important;
   }
 }
 
@@ -422,6 +426,7 @@ $secondary-color: rgba(233, 171, 198, 1);
 
 .user-profile {
   background-color: #e3ddff9e;
+  backdrop-filter: unset !important;
   .user-image {
     img {
       height: 300px;
